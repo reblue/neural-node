@@ -14,7 +14,7 @@
 
   You should have received a copy of the GNU General Public License
   along with neural-node.  If not, see <http://www.gnu.org/licenses/>.
- */
+*/
 
 #ifndef _NODE_H_
 #define _NODE_H_
@@ -68,9 +68,9 @@ typedef struct node{
   //called for running the nodes function.
   nucleus nuc;
   
-  //a simple threshold value used by the nucleus, this can be
+  //a simple memory value used by the nucleus, this can be
   //considered as the only memory a node is having by itself.
-  bin threshold;
+  bin memory;
 } node;
 
 node *create_node();
