@@ -24,6 +24,7 @@
 //places where i want to specify binary values and integer where
 //decimal values. so this is basically 32 bit binary value.
 typedef int bin;
+struct node;
 typedef int (* nucleus)(struct node *, ...);
 
 typedef struct node{

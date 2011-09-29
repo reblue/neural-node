@@ -16,6 +16,7 @@
   along with neural-node.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include <stdio.h>
+#include <stdlib.h>
 #include "node.h"
 #include "percept.h"
 
@@ -63,7 +64,7 @@ Perceptron *create_perceptron(int row, int col){
       grid[p->row * row + col] = create_node();
       if(row > 1){
 	grid[p->row * row + col]->num_input = col;
-	grid[p->row * row + col]->inputs = &grid[p->row (row - 1)];
+	grid[p->row * row + col]->inputs = &grid[p->row * (row - 1)];
 	grid[p->row * row + col]->weights = create_weight_array(col);
       }
       grid[p->row * row + col]->nuc = nuc_signum;
@@ -82,10 +83,10 @@ int nuc_signum(node *n, ...){
   */
   bin sum = 0x00;
   int i;
-  for(i = 0; i < n->num_inputs; i++){
-    sum += inputs[i]->output;
+  for(i = 0; i < n->num_input; i++){
+    sum += n->inputs[i]->output;
   }
-  if(sum > n->threshold){
+  if(sum > n->memory){
     n->output = 1;
   }
   else{

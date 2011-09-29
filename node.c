@@ -16,6 +16,7 @@
   along with neural-node.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "node.h"
+#include <stdlib.h>
 
 node *create_node(){
   node *n = malloc(sizeof(node));

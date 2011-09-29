@@ -15,6 +15,7 @@
   You should have received a copy of the GNU General Public License
   along with neural-node.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include "node.h"
 
 struct Perceptron{
   //Simulating a perceptron based network.
@@ -22,7 +23,7 @@ struct Perceptron{
   int row, col;
 };
 
-typedef struct Perceptron;
+typedef struct Perceptron Perceptron;
 
 
 Perceptron *create_perceptron(int row, int col);
