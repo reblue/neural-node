@@ -23,12 +23,12 @@ node *create_node(){
 }
 
 node **create_intput_array(int num){
-  node *array = malloc(sizeof(node *) * num);
-  return &array;
+  node **array = malloc(sizeof(node *) * num);
+  return array;
 }
 
 bin *create_weight_array(int num){
   bin *array = malloc(sizeof(bin) * num);
-  return &array;
+  return array;
 }
 

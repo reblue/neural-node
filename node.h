@@ -23,7 +23,7 @@
 //I have differed it from int because i want to use bin in those 
 //places where i want to specify binary values and integer where
 //decimal values. so this is basically 32 bit binary value.
-typedef int32 bin;
+typedef int bin;
 typedef int (* nucleus)(struct node *, ...);
 
 typedef struct node{
