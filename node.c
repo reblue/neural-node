@@ -23,7 +23,7 @@ node *create_node(){
   return n;
 }
 
-node **create_intput_array(int num){
+node **create_input_array(int num){
   node **array = malloc(sizeof(node *) * num);
   return array;
 }

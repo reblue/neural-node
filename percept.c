@@ -57,20 +57,18 @@ Perceptron *create_perceptron(int row, int col){
   Perceptron *p = malloc(sizeof(Perceptron));
   p->row = row;
   p->col = col;
-  node **grid;
-  grid = create_input_array(row*col);
+  p->grid = create_input_array(row*col);
   for(row = 0; row < p->row; row++){
     for(col = 0; col < p->col; col++){
-      grid[p->row * row + col] = create_node();
+      p->grid[p->row * row + col] = create_node();
       if(row > 1){
-	grid[p->row * row + col]->num_input = col;
-	grid[p->row * row + col]->inputs = &grid[p->row * (row - 1)];
-	grid[p->row * row + col]->weights = create_weight_array(col);
+	p->grid[p->row * row + col]->num_input = col;
+	p->grid[p->row * row + col]->inputs = &(p->grid[p->row * (row - 1)]);
+	p->grid[p->row * row + col]->weights = create_weight_array(col);
       }
-      grid[p->row * row + col]->nuc = nuc_signum;
+      p->grid[p->row * row + col]->nuc = nuc_signum;
     }
   }
-  p->grid = grid;
   return p;
 }
 
