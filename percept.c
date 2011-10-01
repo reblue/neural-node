@@ -28,7 +28,7 @@ int p_activate(Perceptron *p){
     p:    the perceptron whose nuc functions are to be activated.
   */
   int i;
-  for(i = p->col; i < p->row * p->col; p++){
+  for(i = p->col; i < p->row * p->col; i++){
     p->grid[i]->nuc(p->grid[i]);
   }
   return 0;
@@ -60,13 +60,13 @@ Perceptron *create_perceptron(int row, int col){
   p->grid = create_input_array(row*col);
   for(row = 0; row < p->row; row++){
     for(col = 0; col < p->col; col++){
-      p->grid[p->row * row + col] = create_node();
-      if(row > 1){
-	p->grid[p->row * row + col]->num_input = col;
-	p->grid[p->row * row + col]->inputs = &(p->grid[p->row * (row - 1)]);
-	p->grid[p->row * row + col]->weights = create_weight_array(col);
+      p->grid[p->col * row + col] = create_node();
+      if(row >= 1){
+	p->grid[p->col * row + col]->num_input = col;
+	p->grid[p->col * row + col]->inputs = &(p->grid[p->row * (row - 1)]);
+	p->grid[p->col * row + col]->weights = create_weight_array(col);
       }
-      p->grid[p->row * row + col]->nuc = nuc_signum;
+      p->grid[p->col * row + col]->nuc = nuc_signum;
     }
   }
   return p;
